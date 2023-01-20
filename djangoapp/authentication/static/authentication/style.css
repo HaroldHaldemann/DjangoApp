@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.helptext {
+    font-size: 12px;
+}
+
+.header-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    border: 2px solid;
+    background-color: #62757f;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bolder;  
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.button {
+    font-size: 18px;
+    border: 2px solid #62757f;
+    background: #ccc;
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.container {
+    margin-top: 64px;
+    font-size: 24px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    font-size: 14px;
+}
+
+.helptext {
+    font-size: 14px;
+}
+
+.signup-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

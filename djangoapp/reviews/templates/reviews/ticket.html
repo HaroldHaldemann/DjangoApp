@@ -1,0 +1,14 @@
+<div class="ticket">
+    <p class="user">{{element.user.username}} a demandé une critique</p>
+    <p class="time-created">{{element.time_created}}</p>
+    <h3 class="title">{{element.title}}</h3>
+    <p class="description">{{element.description}}</p>
+    {% if element.image %}
+        <img class="image" src="{{element.image}}"/>
+    {% endif %}
+    {% if not element.is_ticket_reviewed %}
+        <div class="container-review-ticket">
+            <button class="button" type="submit" onclick="location.href='{% url 'review_ticket' element.id %}'">Créer une critique</button>
+        </div>
+    {% endif %}
+</div>
