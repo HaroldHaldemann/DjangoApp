@@ -9,9 +9,18 @@
     <div class="flow">
         {% for element in flow_elements %}
             {% if element|model_type == 'Ticket' %}
-                {% include 'reviews/ticket.html' %}
+                <div class="ticket">
+                    {% include 'reviews/ticket.html' %}
+                    {% if not element.is_ticket_reviewed %}
+                        <div class="container-button-action">
+                            <button class="button" type="submit" onclick="location.href='{% url 'review_ticket' element.id %}'">Créer une critique</button>
+                        </div>
+                    {% endif %}
+                </div>
             {% elif element|model_type == 'Review' %}
-                {% include 'reviews/review.html' %}
+                <div class="review">
+                    {% include 'reviews/review.html' %}
+                </div>
             {% endif %} 
         {% endfor %}
     </div>

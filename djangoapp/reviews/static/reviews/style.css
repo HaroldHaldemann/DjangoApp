@@ -87,12 +87,12 @@ h3 {
     margin: 10px;
 }
 
-.container-review-ticket {
+.container-button-action {
     display: flex;
     justify-content: right;
 }
 
-.container-review-ticket button {
+.container-button-action button {
     padding: 4px;
 }
 

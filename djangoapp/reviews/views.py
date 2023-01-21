@@ -42,7 +42,19 @@ def flow_page(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def my_posts_page(request: HttpRequest) -> HttpResponse:
-    pass
+    tickets = [ticket for ticket in models.Ticket.objects.all() if ticket.user==request.user]
+    reviews = [review for review in models.Review.objects.all() if review.user==request.user]
+
+    for review in reviews:
+        review.star_rating = review.headline + " - " + "★" * review.rating + "☆" * (5 - review.rating)
+
+    tickets_and_reviews = sorted(
+        itertools.chain(tickets, reviews),
+        key=lambda element: element.time_created,
+        reverse=True
+    )
+    context = {'flow_elements': tickets_and_reviews}
+    return render(request, 'reviews/my_posts.html', context=context)
 
 
 # ========== USER FOLLOWS =========== #
@@ -115,7 +127,8 @@ def update_review_page(request: HttpRequest, review_id: int) -> HttpResponse:
 
 @login_required
 def delete_review_page(request: HttpRequest, review_id: int) -> HttpResponse:
-    pass
+    models.Review.objects.filter(id=review_id).delete()
+    return my_posts_page(request)
 
 
 
@@ -134,4 +147,5 @@ def update_ticket_page(request: HttpRequest, ticket_id: int) -> HttpResponse:
 
 @login_required
 def delete_ticket_page(request: HttpRequest, ticket_id: int) -> HttpResponse:
-    pass
+    models.Ticket.objects.filter(id=ticket_id).delete()
+    return my_posts_page(request)

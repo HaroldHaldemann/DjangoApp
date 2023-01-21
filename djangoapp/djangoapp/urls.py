@@ -34,5 +34,5 @@ urlpatterns = [
     path('ticket/<int:ticket_id>/review/', reviews.views.create_review_page, name="review_ticket"),
     path('ticket/', reviews.views.create_ticket_page, name='create_ticket'),
     path('ticket/<int:ticket_id>/update', reviews.views.update_ticket_page, name="update_ticket"),
-    path('ticket/<int:ticket_id>/delete', reviews.views.delete_ticket_page, name="update_ticket")
+    path('ticket/<int:ticket_id>/delete', reviews.views.delete_ticket_page, name="delete_ticket")
 ]

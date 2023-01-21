@@ -1,0 +1,25 @@
+{% extends 'reviews/base.html' %}
+{% load utils %}
+{% block content %}
+<div class="flow">
+    {% for element in flow_elements %}
+        {% if element|model_type == 'Ticket' %}
+            <div class="ticket">
+                {% include 'reviews/ticket.html' %}
+                <div class="container-button-action">
+                    <button class="button" type="submit" onclick="location.href='{% url 'update_ticket' element.id %}'">Modifier</button>
+                    <button class="button" type="submit" onclick="location.href='{% url 'delete_ticket' element.id %}'">Supprimer</button>
+                </div>
+            </div>
+        {% elif element|model_type == 'Review' %}
+            <div class="review">
+                {% include 'reviews/review.html' %}
+                <div class="container-button-action">
+                    <button class="button" type="submit" onclick="location.href='{% url 'update_review' element.id %}'">Modifier</button>
+                    <button class="button" type="submit" onclick="location.href='{% url 'delete_review' element.id %}'">Supprimer</button>
+                </div>
+            </div>
+        {% endif %} 
+    {% endfor %}
+</div>
+{% endblock %}
