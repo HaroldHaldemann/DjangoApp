@@ -21,7 +21,7 @@ def login_page(request: HttpRequest) -> HttpResponse:
             if user is not None:
                 login(request, user)
                 return redirect('flow')
-            
+
             else:
                 message = "Identifiants invalides."
 

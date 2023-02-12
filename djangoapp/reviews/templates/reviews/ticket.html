@@ -1,7 +1,16 @@
-<p class="user">{{element.user.username}} a demandé une critique</p>
-<p class="time-created">{{element.time_created}}</p>
-<h3 class="title">{{element.title}}</h3>
-<p class="description">{{element.description}}</p>
-{% if element.image %}
-    <img class="image" src="{{element.image}}"/>
-{% endif %}
+{% extends 'reviews/base.html' %}
+{% block content %}
+<div class="main-container">
+    <h3>{{ action }}</h3>
+    <div class="ticket-container">
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <div class="content-buttons">
+                <button class="button" onclick="location.href='{% url 'my_posts' %}'">Retour</button>
+                <button type="submit" class="button">Envoyer</button>
+            <div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

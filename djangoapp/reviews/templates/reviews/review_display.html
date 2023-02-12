@@ -1,0 +1,13 @@
+<p class="user">{{element.user.username}} a publié une critique</p>
+<p class="time-created">{{element.time_created}}</p>
+<p class="rating">{{element.star_rating}}</p>
+<p class="description">{{element.body}}</p>
+<div class="ticket">
+    <p class="user">Ticket - {{element.ticket.user.username}}</p>
+    <p class="time-created">{{element.ticket.time_created}}</p>
+    <h3 class="title">{{element.ticket.title}}</h3>
+    <p class="description">{{element.ticket.description}}</p>
+    {% if element.image %}
+        <img class="image" src="{{element.image}}"/>
+    {% endif %}
+</div>
